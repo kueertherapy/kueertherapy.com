@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kueer Therapy — Taoru Huang, LMHC · New York</title>
+<meta name="description" content="Taoru Huang, LMHC — bilingual, queer-affirming, trauma-informed psychotherapy in New York. Individual, relationship, and sex therapy, online across New York State. 中英双语、酷儿肯定的心理治疗。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kueer Therapy — Taoru Huang, LMHC">
+<meta property="og:description" content="Bilingual, queer-affirming, trauma-informed therapy in New York. Online across New York State.">
+<meta property="og:site_name" content="Kueer Therapy">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@1,6..96,500&family=Fraunces:opsz,wght@9..144,380..640&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* =====================================================================
+   KUEER THERAPY · homepage v7  (homepage structure + Lite refinements)
+   ===================================================================== */
+:root{
+  --ivory:#F7F4EC; --linen:#EFEBDF; --stone:#F1EFE8;
+  --ink:#26292E; --ink-soft:#5C6169; --accent:#2E5E66;
+  --line:rgba(38,41,46,0.14); --line-soft:rgba(38,41,46,0.07); --btn-ink:#F5F3EA;
+  --coral:#F2A48C; --butter:#F3D48C; --mint:#A9DDC8; --sky:#A7CDEC; --lilac:#C9BBE6; --rose:#F1B7C6;
+  --self:#7FA3CE; --partner:#E38E6C; --rel:#7FBE9E;
+  --serif:'Fraunces','Georgia',serif; --sans:'Inter',sans-serif;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans); background:var(--ivory); color:var(--ink); line-height:1.75; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;}
+body.lang-zh{ --serif:'Noto Serif SC','Fraunces',serif; --sans:'Noto Sans SC','Inter',sans-serif; }
+body.lang-en .zh{display:none;} body.lang-zh .en{display:none;}
+h1,h2,h3,.serif{font-family:var(--serif); line-height:1.18; color:var(--ink);}
+.wrap{max-width:1120px; margin:0 auto; padding:0 clamp(28px,6vw,72px); position:relative;}
+a{color:inherit; text-decoration:none;}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
+.skip{position:absolute; left:-9999px; top:0; z-index:300; background:var(--ink); color:var(--btn-ink); padding:10px 18px; border-radius:0 0 10px 0; font-size:13px;}
+.skip:focus{left:0;}
+
+.grain{position:fixed; inset:0; z-index:90; pointer-events:none; opacity:.045; mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:150px 150px;}
+
+@keyframes auraDrift{0%{transform:translate3d(0,0,0) scale(1);}50%{transform:translate3d(1.4%,-1%,0) scale(1.04);}100%{transform:translate3d(0,0,0) scale(1);}}
+
+/* ===== NAV ===== */
+nav.top{position:sticky; top:0; z-index:80; background:color-mix(in srgb, var(--ivory) 86%, transparent); backdrop-filter:saturate(120%) blur(9px); border-bottom:1px solid var(--line-soft);}
+nav.top .wrap{display:flex; align-items:center; justify-content:space-between; height:74px;}
+.logo{font-family:'Bodoni Moda',serif; font-style:italic; font-weight:500; font-size:20px; letter-spacing:.3px;}
+.navlinks{display:flex; align-items:center; gap:22px; font-size:14px;}
+.navlinks a{color:var(--ink-soft); transition:color .3s;}
+.navlinks a:hover{color:var(--ink);}
+.nav-cta{background:var(--ink); color:var(--btn-ink) !important; padding:9px 18px; border-radius:22px; font-size:13px; letter-spacing:.2px; transition:background .3s;}
+.nav-cta:hover{background:#15181C;}
+.langtoggle{display:flex; gap:2px;}
+.langtoggle button{border:none; background:transparent; padding:5px 11px; border-radius:8px; cursor:pointer; font-family:inherit; font-size:12px; color:var(--ink-soft); transition:background .25s,color .25s;}
+.langtoggle button:hover{color:var(--ink);}
+.langtoggle button.active{background:rgba(38,41,46,0.07); color:var(--ink);}
+@media(max-width:640px){ .navlinks a.hide-sm{display:none;} .navlinks{gap:14px;} }
+
+/* ===== section rhythm ===== */
+section{padding:clamp(72px,10vh,110px) 0; position:relative;}
+.section-head{max-width:640px; margin-bottom:clamp(38px,6vh,54px);}
+.kicker{font-size:12px; letter-spacing:2.2px; text-transform:uppercase; color:var(--accent); margin-bottom:14px; font-weight:600;}
+.section-head h2{font-size:clamp(27px,3.3vw,36px); font-variation-settings:"opsz" 40,"wght" 540;}
+.lede-2{font-size:16px; color:var(--ink-soft); max-width:58ch; margin-top:16px;}
+/* soft-spectrum rule under section headings */
+.section-head h2{position:relative; display:inline-block; padding-bottom:16px;}
+.section-head h2::after{content:''; position:absolute; left:0; bottom:0; width:clamp(130px,28%,190px); height:3.5px; border-radius:3px;
+  background:linear-gradient(90deg,var(--coral),var(--butter),var(--mint),var(--sky),var(--lilac));}
+
+/* ===== HERO ===== */
+.hero{position:relative; overflow:hidden; background:var(--ivory); padding:clamp(96px,15vh,150px) 0 clamp(84px,13vh,120px);}
+.hero::before{content:''; position:absolute; inset:-14%; z-index:0; pointer-events:none; filter:blur(20px); opacity:.9; animation:auraDrift 42s ease-in-out infinite;
+  background:radial-gradient(46% 58% at 82% 22%, rgba(201,187,230,0.34), transparent 68%),
+            radial-gradient(42% 54% at 90% 62%, rgba(167,205,236,0.30), transparent 70%),
+            radial-gradient(40% 50% at 14% 78%, rgba(169,221,200,0.30), transparent 70%),
+            radial-gradient(36% 46% at 24% 24%, rgba(242,164,140,0.18), transparent 72%);}
+.hero .wrap{position:relative; z-index:2;}
+.hero .eyebrow{font-size:12px; letter-spacing:2.4px; text-transform:uppercase; color:var(--accent); margin-bottom:22px;}
+.hero h1{font-family:var(--serif); font-size:clamp(38px,6vw,66px); font-variation-settings:"opsz" 60,"wght" 560; letter-spacing:-.012em; max-width:16ch; margin-bottom:24px;}
+body.lang-zh .hero h1{letter-spacing:.02em; max-width:20ch;}
+.hero-sub{font-family:var(--serif); font-style:italic; font-variation-settings:"opsz" 34,"wght" 400; font-size:clamp(18px,2.3vw,25px); line-height:1.4; color:var(--ink); max-width:30ch; margin-bottom:clamp(20px,3.2vh,28px);}
+body.lang-zh .hero-sub{font-style:normal; max-width:24em;}
+.hero .lede{font-size:clamp(16px,1.7vw,19px); color:var(--ink-soft); max-width:50ch; margin-bottom:34px;}
+.hero-tag{position:absolute; right:4%; top:32%; z-index:2; font-size:12px; letter-spacing:2px; text-transform:uppercase; writing-mode:vertical-rl; color:var(--ink-soft); opacity:.4;}
+@media(max-width:860px){ .hero-tag{display:none;} }
+.cta-row{display:flex; flex-wrap:wrap; gap:14px;}
+.btn{display:inline-block; padding:14px 28px; border-radius:30px; font-size:14px; font-weight:500; cursor:pointer; border:1.5px solid transparent; transition:background .3s, border-color .3s, transform .3s;}
+.btn-primary{background:var(--ink); color:var(--btn-ink);}
+.btn-primary:hover{background:#15181C; transform:translateY(-1px);}
+.btn-ghost{border-color:rgba(38,41,46,0.28); color:var(--ink);}
+.btn-ghost:hover{border-color:var(--ink);}
+
+/* ===== ABOUT ===== */
+#about{background:var(--ivory);}
+.about-grid{display:grid; grid-template-columns:minmax(0,300px) 1fr; gap:clamp(34px,5vw,68px); align-items:start;}
+.portrait{aspect-ratio:4/5; border-radius:10px; border:1px solid var(--line-soft); overflow:hidden; position:sticky; top:100px; box-shadow:0 18px 44px rgba(38,41,46,.10);}
+.portrait img{width:100%; height:100%; object-fit:cover; object-position:center 18%; display:block;}
+.about-body h2{font-size:clamp(26px,3.2vw,36px); font-variation-settings:"opsz" 40,"wght" 520; margin-bottom:18px;}
+.about-body > p{font-size:16px; color:#3A3E44; line-height:1.8; margin-bottom:1.3em; max-width:64ch;}
+.about-body .warm{color:var(--ink); font-variation-settings:"wght" 500;}
+.creds{margin-top:clamp(26px,4vh,40px); border-top:1px solid var(--line-soft); padding-top:clamp(24px,3.5vh,34px);}
+.creds-title{font-size:11px; letter-spacing:1.6px; text-transform:uppercase; color:var(--accent); font-weight:600; margin-bottom:20px;}
+.creds-grid{display:block;}
+.creds-grid .cred{margin-bottom:22px;}
+.creds-grid .cred:last-child{margin-bottom:0;}
+.cred-label{font-size:11px; letter-spacing:1.2px; text-transform:uppercase; color:var(--ink-soft); margin-bottom:7px;}
+.cred-val{font-size:14px; color:#3A3E44; line-height:1.6;}
+@media(max-width:820px){ .about-grid{grid-template-columns:1fr; gap:30px;} .portrait{position:static; max-width:280px;} }
+
+/* ===== THERAPY (expandable blocks with motifs) ===== */
+#therapy{background:var(--stone);}
+#begin{background:var(--ivory);}
+.therapy-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; align-items:start; margin-top:clamp(6px,1vh,12px);}
+.exp{scroll-margin-top:90px; border:1px solid var(--line); border-radius:16px; background:var(--ivory); overflow:hidden; transition:border-color .3s, box-shadow .3s;}
+.exp:hover{border-color:rgba(38,41,46,0.22); box-shadow:0 10px 30px rgba(38,41,46,.05);}
+.exp-head{position:relative; display:flex; flex-direction:column; align-items:flex-start; gap:12px; width:100%; text-align:left; background:transparent; border:0; cursor:pointer; font:inherit; color:inherit; padding:clamp(22px,2.6vw,28px);}
+.tmotif{width:100%; height:58px; margin-bottom:6px;}
+.exp-head h3{font-family:var(--serif); font-variation-settings:"opsz" 32,"wght" 520; font-size:clamp(18px,2vw,22px); display:flex; align-items:center; gap:10px;}
+.exp-head h3 .dot{width:9px; height:9px; border-radius:50%; background:var(--c,var(--accent)); flex:none;}
+.exp-head .lede{font-size:14px; color:var(--ink-soft); line-height:1.6; min-height:2.6em;}
+.exp-head .chev{position:absolute; top:clamp(22px,2.6vw,28px); right:clamp(22px,2.6vw,28px); width:22px; height:22px; color:var(--ink-soft); transition:transform .35s ease;}
+.exp[open] .exp-head .chev{transform:rotate(180deg);}
+.exp-body{max-height:0; overflow:hidden; transition:max-height .45s cubic-bezier(.22,1,.36,1);}
+.exp-body .inner{padding:0 clamp(22px,2.6vw,28px) clamp(24px,3vw,30px);}
+.exp-body p{font-size:14.5px; color:#3A3E44; line-height:1.72;}
+@media(max-width:860px){ .therapy-grid{grid-template-columns:1fr;} }
+
+/* ===== PRACTICAL DETAILS strip ===== */
+.facts{margin-top:clamp(28px,4.5vh,44px); display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line-soft); border:1px solid var(--line-soft); border-radius:14px; overflow:hidden;}
+.fact{background:var(--ivory); padding:clamp(18px,2.2vw,24px);}
+.fact .k{font-size:11px; letter-spacing:1.3px; text-transform:uppercase; color:var(--accent); margin-bottom:9px;}
+.fact .v{font-size:14px; color:var(--ink); line-height:1.5;}
+.fact .v .sub{display:block; font-size:12.5px; color:var(--ink-soft); margin-top:3px;}
+@media(max-width:820px){ .facts{grid-template-columns:1fr 1fr;} }
+@media(max-width:460px){ .facts{grid-template-columns:1fr;} }
+
+/* ===== GETTING STARTED steps ===== */
+.steps{display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(18px,2.4vw,32px);}
+.step{position:relative; padding-top:22px; border-top:1px solid var(--line-soft);}
+.step .num{font-family:var(--serif); font-variation-settings:"opsz" 40,"wght" 480; font-size:30px; margin-bottom:12px; color:var(--accent);}
+.step:nth-child(1) .num{color:var(--coral);}
+.step:nth-child(2) .num{color:#C9A227;}
+.step:nth-child(3) .num{color:var(--sky);}
+.step:nth-child(4) .num{color:var(--lilac);}
+.step h3{font-family:var(--serif); font-variation-settings:"opsz" 28,"wght" 500; font-size:17px; line-height:1.32; margin-bottom:8px;}
+.step p{font-size:14px; color:var(--ink-soft); line-height:1.6;}
+@media(max-width:820px){ .steps{grid-template-columns:1fr 1fr; gap:26px;} }
+@media(max-width:460px){ .steps{grid-template-columns:1fr;} }
+
+/* ===== FAQ ===== */
+#faq{background:var(--stone);}
+.faq-list{max-width:760px; margin:0 auto;}
+.faq-item{border-top:1px solid var(--line-soft);}
+.faq-item:last-child{border-bottom:1px solid var(--line-soft);}
+.faq-q{display:flex; align-items:center; justify-content:space-between; gap:18px; width:100%; text-align:left; background:transparent; border:0; cursor:pointer; font:inherit; color:inherit; padding:clamp(18px,2.6vw,24px) 4px;}
+.faq-q .qt{font-family:var(--serif); font-variation-settings:"opsz" 30,"wght" 500; font-size:clamp(16px,1.7vw,19px); color:var(--ink);}
+.faq-q .chev{flex:none; width:20px; height:20px; color:var(--ink-soft); transition:transform .35s ease;}
+.faq-item[open] .faq-q .chev{transform:rotate(180deg);}
+.faq-a{max-height:0; overflow:hidden; transition:max-height .4s cubic-bezier(.22,1,.36,1);}
+.faq-a .inner{padding:0 4px clamp(18px,2.6vw,24px); max-width:64ch;}
+.faq-a p{font-size:15px; color:#3A3E44; line-height:1.72;}
+
+/* ===== BEGIN (email-only card, kept from Lite) ===== */
+#begin-contact{background:var(--ivory); text-align:center; position:relative; overflow:hidden;}
+#begin-contact::before{content:''; position:absolute; inset:-10%; z-index:0; pointer-events:none; filter:blur(14px); opacity:.7;
+  background:radial-gradient(40% 52% at 78% 22%, rgba(167,205,236,0.22), transparent 70%),
+            radial-gradient(38% 50% at 18% 84%, rgba(169,221,200,0.22), transparent 72%),
+            radial-gradient(32% 42% at 52% 50%, rgba(242,164,140,0.12), transparent 72%);}
+#begin-contact .wrap{position:relative; z-index:1;}
+.begin-card{position:relative; max-width:680px; margin:0 auto; border:1px solid var(--line); border-radius:20px; border-top:3px solid transparent; box-shadow:0 20px 60px rgba(38,41,46,.06); border-image:linear-gradient(90deg,var(--coral),var(--butter),var(--mint),var(--sky),var(--lilac)) 1; border-image-slice:1; padding:clamp(42px,7vh,74px) clamp(28px,5vw,60px); background:var(--ivory); overflow:hidden;}
+.begin-card .ba{position:absolute; inset:0; z-index:0; pointer-events:none; background:radial-gradient(60% 70% at 22% 18%, rgba(167,205,236,0.08), transparent 72%), radial-gradient(56% 66% at 84% 88%, rgba(201,187,230,0.07), transparent 74%);}
+.begin-card > *{position:relative; z-index:1;}
+.begin-card .kicker{margin-bottom:14px;}
+.begin-card h2{font-variation-settings:"opsz" 40,"wght" 520; font-size:clamp(24px,3.4vw,34px); margin-bottom:14px;}
+.begin-card p{font-size:15.5px; color:var(--ink-soft); line-height:1.7; max-width:48ch; margin:0 auto 8px;}
+.begin-card .email{display:inline-block; margin-top:clamp(24px,4vh,36px); font-family:var(--serif); font-variation-settings:"opsz" 30,"wght" 460; font-size:clamp(19px,2.4vw,26px); color:var(--ink); border-bottom:1.5px solid var(--accent); padding-bottom:3px; transition:color .3s, border-color .3s;}
+.begin-card .email:hover{color:var(--accent);}
+.begin-card .note{margin-top:22px; font-size:13px; color:var(--ink-soft);}
+
+/* ===== footer — 3 balanced columns (left / center / right) ===== */
+footer{background:var(--linen); color:var(--ink); padding:64px 0 32px; border-top:1px solid var(--line);}
+.footer-grid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:36px 44px; margin-bottom:46px; align-items:start;}
+.fcol-left{text-align:left;} .fcol-center{text-align:center;} .fcol-right{text-align:right;}
+footer .wm{font-family:'Bodoni Moda',serif; font-style:italic; font-size:24px; line-height:1; margin-bottom:16px;}
+footer .tagline{font-size:14px; color:var(--ink-soft); line-height:1.8;}
+.fcol h4{font-size:11px; letter-spacing:1.4px; text-transform:uppercase; color:var(--accent); font-weight:600; margin-bottom:16px;}
+.fcol a,.fcol p{display:block; font-size:14px; color:var(--ink-soft); margin-bottom:11px; transition:color .3s;}
+.fcol a:hover{color:var(--ink);}
+.colophon-row{border-top:1px solid var(--line-soft); padding-top:22px; display:grid; grid-template-columns:1fr 1fr 1fr; align-items:center; gap:14px; font-size:12px; color:var(--ink-soft); letter-spacing:.2px;}
+.colophon-row .c-left{text-align:left;} .colophon-row .c-center{text-align:center;} .colophon-row .c-right{text-align:right;}
+@media(max-width:700px){
+  .footer-grid{grid-template-columns:1fr; gap:30px; text-align:center;}
+  .fcol-left,.fcol-center,.fcol-right{text-align:center;}
+  .colophon-row{grid-template-columns:1fr; text-align:center; gap:10px;}
+  .colophon-row .c-left,.colophon-row .c-center,.colophon-row .c-right{text-align:center;}
+}
+
+
+/* ===== WHERE WE OFTEN BEGIN (static groups, no fold) ===== */
+#begin-places{background:var(--linen);}
+.places-grid{display:grid; grid-template-columns:1fr 1fr; gap:clamp(24px,3vw,40px) clamp(30px,4vw,56px); margin-top:clamp(30px,5vh,46px);}
+.place-group{position:relative;}
+.place-group h3{font-family:var(--serif); font-variation-settings:"opsz" 34,"wght" 520; font-size:clamp(19px,2.1vw,23px); margin-bottom:10px; display:flex; align-items:center; gap:11px;}
+.place-group h3 .dot{width:10px; height:10px; border-radius:50%; flex:none;}
+.place-group .intro{font-size:14.5px; color:var(--ink-soft); line-height:1.62; margin-bottom:16px; max-width:44ch;}
+.chips{display:flex; flex-wrap:wrap; gap:8px;}
+.chips{gap:9px 10px;}
+.chips > span{display:inline-flex; align-items:center; font-size:13px; color:#4A4E54; padding:6px 14px; border-radius:20px;
+  border:1px solid var(--line); background:transparent; transition:background .25s ease, color .25s ease, border-color .25s ease;}
+.chips > span:hover{color:var(--ink); background:var(--chip-bg-h, rgba(38,41,46,.06)); border-color:transparent;}
+/* per-group hover wash (soft, low-saturation) */
+.place-group.pg-identity .chips > span:hover{ background:rgba(201,187,230,.34); }
+.place-group.pg-asian    .chips > span:hover{ background:rgba(243,212,140,.36); }
+.place-group.pg-together .chips > span:hover{ background:rgba(227,142,108,.30); }
+.place-group.pg-desire   .chips > span:hover{ background:rgba(242,164,140,.30); }
+@media(max-width:760px){ .places-grid{grid-template-columns:1fr; gap:30px;} }
+
+
+/* ===== DOC OVERLAY (Privacy / Terms / Accessibility) ===== */
+.doc-overlay{position:fixed; inset:0; z-index:200; display:none; align-items:flex-start; justify-content:center; padding:clamp(20px,5vh,64px) clamp(16px,4vw,40px);}
+.doc-overlay.open{display:flex;}
+.doc-backdrop{position:absolute; inset:0; background:rgba(30,28,24,0.44); backdrop-filter:blur(3px); opacity:0; transition:opacity .3s ease;}
+.doc-overlay.open .doc-backdrop{opacity:1;}
+.doc-panel{position:relative; z-index:1; width:100%; max-width:720px; max-height:90vh; overflow-y:auto; background:var(--ivory); border:1px solid var(--line); border-radius:18px; box-shadow:0 30px 80px rgba(38,41,46,.22); padding:clamp(30px,5vw,56px) clamp(24px,5vw,60px) clamp(36px,6vw,64px);
+  opacity:0; transform:translateY(14px) scale(.99); transition:opacity .32s ease, transform .32s cubic-bezier(.22,1,.36,1); -webkit-overflow-scrolling:touch;}
+.doc-overlay.open .doc-panel{opacity:1; transform:none;}
+.doc-panel::-webkit-scrollbar{width:10px;} .doc-panel::-webkit-scrollbar-thumb{background:rgba(38,41,46,.16); border-radius:8px; border:3px solid var(--ivory);}
+.doc-close{position:sticky; top:0; float:right; margin:-6px -6px 0 0; width:38px; height:38px; display:flex; align-items:center; justify-content:center; border:1px solid var(--line); border-radius:50%; background:var(--ivory); color:var(--ink-soft); cursor:pointer; transition:background .25s, color .25s, border-color .25s; z-index:2;}
+.doc-close:hover{background:var(--ink); color:var(--btn-ink); border-color:var(--ink);}
+.doc-close:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+.doc{display:none;}
+.doc.active{display:block;}
+.doc .doc-eyebrow{font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--accent); margin-bottom:14px;}
+.doc h2.doc-title{font-family:var(--serif); font-variation-settings:"opsz" 40,"wght" 540; font-size:clamp(26px,4vw,36px); line-height:1.12; margin-bottom:10px;}
+.doc .doc-lede{font-family:var(--serif); font-style:italic; font-variation-settings:"opsz" 24,"wght" 380; font-size:clamp(15px,1.8vw,18px); color:var(--ink-soft); margin-bottom:8px;}
+body.lang-zh .doc .doc-lede{font-style:normal;}
+.doc .doc-intro{font-size:15px; color:#3A3E44; line-height:1.72; margin:16px 0 8px;}
+.doc hr{border:0; border-top:1px solid var(--line-soft); margin:26px 0;}
+.doc h3{font-family:var(--serif); font-variation-settings:"opsz" 30,"wght" 520; font-size:clamp(17px,2vw,20px); margin:0 0 12px;}
+.doc p{font-size:14.5px; color:#3A3E44; line-height:1.74; margin-bottom:12px;}
+.doc p:last-child{margin-bottom:0;}
+.doc strong{color:var(--ink); font-weight:600;}
+.doc ul{list-style:none; margin:6px 0 12px; padding:0;}
+.doc ul li{position:relative; padding-left:20px; font-size:14.5px; color:#3A3E44; line-height:1.7; margin-bottom:7px;}
+.doc ul li::before{content:''; position:absolute; left:4px; top:.66em; width:6px; height:6px; border-radius:50%; background:var(--accent); opacity:.55;}
+.doc .doc-email{color:var(--accent); font-weight:600;}
+.doc .doc-updated{margin-top:28px; padding-top:18px; border-top:1px solid var(--line-soft); font-size:12.5px; color:var(--ink-soft);}
+@media(max-width:520px){ .doc-panel{border-radius:14px; max-height:94vh;} }
+
+@media (prefers-reduced-motion: reduce){ .hero::before{animation:none;} html{scroll-behavior:auto;} }
+</style>
+</head>
+<body class="lang-en">
+
+<a class="skip" href="#about"><span class="en">Skip to content</span><span class="zh">跳到正文</span></a>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ===== nav ===== -->
+<nav class="top">
+  <div class="wrap">
+    <a href="#top" class="logo">kueer therapy</a>
+    <div class="navlinks">
+      <a class="hide-sm" href="#about"><span class="en">About</span><span class="zh">关于</span></a>
+      <a class="hide-sm" href="#therapy"><span class="en">Therapy</span><span class="zh">治疗</span></a>
+      <a class="hide-sm" href="#faq"><span class="en">FAQ</span><span class="zh">常见问题</span></a>
+      <a href="#begin-contact" class="nav-cta"><span class="en">Begin</span><span class="zh">开始</span></a>
+      <div class="langtoggle">
+        <button class="active" onclick="setLang('en')">EN</button>
+        <button onclick="setLang('zh')">中</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-tag">KUEER THERAPY · NEW YORK · EST 2025</div>
+    <div class="wrap">
+      <p class="eyebrow"><span class="en">Bilingual · Queer-Affirming · Trauma-Informed</span><span class="zh">中英双语 · 酷儿肯定 · 创伤知情</span></p>
+      <h1><span class="en">Every part of you is welcome here.</span><span class="zh">你的每一部分，在这里都被欢迎。</span></h1>
+      <p class="hero-sub"><span class="en">Making room before making sense.</span><span class="zh">先安放，再理解。</span></p>
+      <p class="lede"><span class="en">Bilingual psychotherapy for people navigating identity, relationships, intimacy, and belonging.</span><span class="zh">中英双语心理治疗，陪伴正在梳理身份、关系、亲密与归属议题的人们。</span></p>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="portrait"><img src="taoru-portrait.jpg" alt="Taoru Huang, LMHC"></div>
+        <div class="about-body">
+          <div class="kicker"><span class="en">About</span><span class="zh">关于</span></div>
+          <h2><span class="en">Hi, I’m Taoru.</span><span class="zh">你好，我是 Taoru。</span></h2>
+          <p><span class="en"><span class="warm">I’m a bilingual psychotherapist based in New York,</span> working with adults at the intersections of culture, identity, and relationships. My approach is collaborative and eclectic — grounded in curiosity and compassion, drawing from psychodynamic, EMDR, IFS, narrative, and relational modalities, woven together in whatever way best supports you.</span><span class="zh"><span class="warm">我是 Taoru Huang，一名在纽约执业的中英双语心理治疗师，</span>长期陪伴在文化、身份与关系交叉处的成年来访者。我的工作方式是协作、整合式的，以好奇与关怀为基础，融合心理动力学、EMDR、内在家庭系统（IFS）、叙事治疗与关系取向，依照每个人的具体需要来编织。</span></p>
+          <p><span class="en">My work is informed by multicultural, feminist, and queer theories, as well as my own perspective as an Asian queer therapist. I try to challenge the limits of Americentric, heteronormative models of therapy, so that together we can make a space where you can express, explore, and embrace who you really are.</span><span class="zh">我的工作深受多元文化、女性主义与酷儿理论影响，也来自我作为一名亚裔酷儿治疗师的自身经验。我希望突破以美国为中心、异性恋规范化的传统框架的局限，与你一起创造一个安全的空间，让你可以表达、探索并拥抱真实的自己。</span></p>
+
+          <div class="creds">
+            <div class="creds-title"><span class="en">Education &amp; Credentials</span><span class="zh">教育背景与专业资历</span></div>
+            <div class="creds-grid">
+              <div class="cred">
+                <div class="cred-label"><span class="en">Licensure</span><span class="zh">执照</span></div>
+                <p class="cred-val"><span class="en">LMHC — Licensed Mental Health Counselor, New York State (#016431)</span><span class="zh">LMHC — 纽约州持证心理健康咨询师（#016431）</span></p>
+              </div>
+              <div class="cred">
+                <div class="cred-label"><span class="en">Education</span><span class="zh">教育背景</span></div>
+                <p class="cred-val"><span class="en">M.A., Counseling for Mental Health &amp; Wellness / LGBT Health, Education &amp; Social Services — New York University</span><span class="zh">心理健康与咨询 / LGBT 健康、教育与社会服务 硕士 — 纽约大学</span></p>
+                <p class="cred-val" style="margin-top:8px;"><span class="en">B.J., Journalism — University of Missouri</span><span class="zh">新闻学 学士 — 密苏里大学</span></p>
+              </div>
+              <div class="cred">
+                <div class="cred-label"><span class="en">Training</span><span class="zh">专业训练</span></div>
+                <p class="cred-val"><span class="en">EMDR · Internal Family Systems (IFS) · narrative &amp; relational approaches · sex &amp; relationship therapy</span><span class="zh">EMDR · 内在家庭系统（IFS）· 叙事与关系取向 · 性治疗与关系治疗</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== THERAPY ===== -->
+  <section id="therapy">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker"><span class="en">How we can work together</span><span class="zh">我们可以如何合作</span></div>
+        <h2><span class="en">Ways to work together</span><span class="zh">一起工作的方式</span></h2>
+        <p class="lede-2"><span class="en">Three ways to work together. Open any to read a little more.</span><span class="zh">三种一起工作的方式，点开任意一项了解更多一点。</span></p>
+      </div>
+
+      <div class="therapy-grid">
+        <!-- Individual -->
+        <details class="exp" id="individual">
+          <summary class="exp-head">
+            <svg class="tmotif" viewBox="0 0 200 72" fill="none" aria-hidden="true" stroke="var(--self)" stroke-width="2.2">
+              <circle cx="100" cy="36" r="7" stroke-opacity="1"/>
+              <circle cx="100" cy="36" r="17" stroke-opacity=".55"/>
+              <circle cx="100" cy="36" r="27" stroke-opacity=".28"/>
+            </svg>
+            <h3><span class="dot" style="--c:var(--self)"></span><span class="en">Individual</span><span class="zh">个体治疗</span></h3>
+            <span class="lede"><span class="en">A steady, confidential space to feel like yourself again.</span><span class="zh">一个稳定而保密的空间，陪你重新找回自己。</span></span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="exp-body"><div class="inner">
+            <p><span class="en">Ongoing one-on-one sessions for anxiety, low mood, self-worth, identity, or a life change that’s weighing on you. A place to understand yourself and feel a little steadier again.</span><span class="zh">持续的一对一会谈，陪你梳理焦虑、情绪低落、自我价值、身份认同，或让你感到沉重的人生变化——一个更理解自己、也更稳定的地方。</span></p>
+          </div></div>
+        </details>
+
+        <!-- Relationship -->
+        <details class="exp" id="relationship">
+          <summary class="exp-head">
+            <svg class="tmotif" viewBox="0 0 200 72" fill="none" aria-hidden="true" stroke-width="2.2">
+              <defs><clipPath id="lensR"><circle cx="111" cy="36" r="22"/></clipPath></defs>
+              <circle cx="89" cy="36" r="22" clip-path="url(#lensR)" fill="var(--rel)" fill-opacity=".16"/>
+              <circle cx="89" cy="36" r="22" stroke="var(--self)"/>
+              <circle cx="111" cy="36" r="22" stroke="var(--partner)"/>
+            </svg>
+            <h3><span class="dot" style="--c:var(--partner)"></span><span class="en">Relationship</span><span class="zh">关系治疗</span></h3>
+            <span class="lede"><span class="en">For partners of any structure, held with equal care.</span><span class="zh">面向任何结构的伴侣，都以同等的用心相待。</span></span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="exp-body"><div class="inner">
+            <p><span class="en">For couples and partners working on communication, trust, or recurring conflict. We look at the dynamic between you, and how to stay close without losing yourselves. All relationship structures are welcome.</span><span class="zh">面向正在处理沟通、信任或反复冲突的伴侣——一起看你们之间的动态，以及如何在亲近的同时不失去自己。欢迎各种形态的关系。</span></p>
+          </div></div>
+        </details>
+
+        <!-- Sex -->
+        <details class="exp" id="sex">
+          <summary class="exp-head">
+            <svg class="tmotif" viewBox="0 0 200 72" fill="none" aria-hidden="true" stroke-width="2.2" stroke-linejoin="round">
+              <path d="M74 18 L128 30 L96 58 Z" stroke="var(--coral)" stroke-opacity=".45"/>
+              <circle cx="74" cy="18" r="6" fill="var(--rose)"/>
+              <circle cx="128" cy="30" r="6" fill="var(--lilac)"/>
+              <circle cx="96" cy="58" r="6" fill="var(--coral)"/>
+            </svg>
+            <h3><span class="dot" style="--c:var(--coral)"></span><span class="en">Sex</span><span class="zh">性治疗</span></h3>
+            <span class="lede"><span class="en">A shame-free space for desire, intimacy and pleasure.</span><span class="zh">一个谈论欲望、亲密与愉悦的自在空间。</span></span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="exp-body"><div class="inner">
+            <p><span class="en">A comfortable space to talk about desire, intimacy, sexual concerns, and pleasure, for individuals and partners alike. It’s talk-based: no physical exams, and nothing you’re not ready for.</span><span class="zh">一个自在的空间，谈论欲望、亲密、性方面的困扰与愉悦——个人与伴侣都适用。以谈话为主，没有身体检查，也不会有任何你尚未准备好的内容。</span></p>
+          </div></div>
+        </details>
+      </div>
+
+      <!-- practical details -->
+      <div class="facts">
+        <div class="fact"><div class="k"><span class="en">Sessions</span><span class="zh">会谈</span></div><div class="v"><span class="en">Online across New York</span><span class="zh">线上 · 覆盖纽约州</span><span class="sub"><span class="en">Most sessions are 50 minutes</span><span class="zh">多数会谈为 50 分钟</span></span></div></div>
+        <div class="fact"><div class="k"><span class="en">Individual</span><span class="zh">个体</span></div><div class="v">$200<span class="sub"><span class="en">per 50-minute session</span><span class="zh">每次 50 分钟</span></span></div></div>
+        <div class="fact"><div class="k"><span class="en">Relationship</span><span class="zh">关系</span></div><div class="v">$250<span class="sub"><span class="en">per 50-minute session</span><span class="zh">每次 50 分钟</span></span></div></div>
+        <div class="fact"><div class="k"><span class="en">Insurance</span><span class="zh">保险</span></div><div class="v"><span class="en">Aetna · Anthem BCBS</span><span class="zh">Aetna · Anthem BCBS</span><span class="sub"><span class="en">In-network · superbills otherwise</span><span class="zh">在网 · 其余可开 superbill</span></span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHERE WE OFTEN BEGIN ===== -->
+  <section id="begin-places">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker"><span class="en">What brings people in</span><span class="zh">人们为何前来</span></div>
+        <h2><span class="en">Where we often begin</span><span class="zh">我们常常从这里开始</span></h2>
+        <p class="lede-2"><span class="en">People rarely arrive with just one reason. More often it’s a few things at once, tangled together, and you might see yourself in more than one of these.</span><span class="zh">人们很少只带着一个理由前来。更多时候，是好几件事同时缠绕在一起——你或许会在其中不止一处，认出自己。</span></p>
+      </div>
+      <div class="places-grid">
+
+        <div class="place-group pg-identity">
+          <h3><span class="dot" style="background:var(--lilac)"></span><span class="en">LGBTQ+ Identity</span><span class="zh">LGBTQ+ 身份</span></h3>
+          <p class="intro"><span class="en">Identity isn’t a single arrival. It keeps unfolding, and it deserves a place to be understood.</span><span class="zh">身份不是一次抵达，而是持续展开的过程——它值得一个被理解的地方。</span></p>
+          <div class="chips">
+            <span><span class="en">Coming out</span><span class="zh">出柜</span></span>
+            <span><span class="en">Gender exploration</span><span class="zh">性别探索</span></span>
+            <span><span class="en">Minority stress</span><span class="zh">少数群体压力</span></span>
+            <span><span class="en">Neurodiversity</span><span class="zh">神经多样性</span></span>
+            <span><span class="en">Family expectations</span><span class="zh">家庭期待</span></span>
+          </div>
+        </div>
+
+        <div class="place-group pg-asian">
+          <h3><span class="dot" style="background:var(--butter)"></span><span class="en">Asian &amp; Immigrant Experiences</span><span class="zh">亚裔与移民经验</span></h3>
+          <p class="intro"><span class="en">Living between cultures and languages, and carrying the expectations that travel with them.</span><span class="zh">生活在文化与语言之间——也承载着随之而来的种种期待。</span></p>
+          <div class="chips">
+            <span><span class="en">Cross-cultural identity</span><span class="zh">跨文化身份</span></span>
+            <span><span class="en">Family &amp; belonging</span><span class="zh">家庭与归属</span></span>
+            <span><span class="en">Diaspora</span><span class="zh">离散经验</span></span>
+            <span><span class="en">Intergenerational expectations</span><span class="zh">代际期待</span></span>
+            <span><span class="en">Language &amp; translation</span><span class="zh">语言与转译</span></span>
+          </div>
+        </div>
+
+        <div class="place-group pg-together">
+          <h3><span class="dot" style="background:var(--partner)"></span><span class="en">Individuality &amp; Togetherness</span><span class="zh">独立与共处</span></h3>
+          <p class="intro"><span class="en">The pull between closeness and autonomy: staying yourself while building a life with someone else.</span><span class="zh">亲近与独立之间的拉扯——在与另一个人共建生活的同时，仍然做自己。</span></p>
+          <div class="chips">
+            <span><span class="en">Communication</span><span class="zh">沟通</span></span>
+            <span><span class="en">Trust &amp; conflict</span><span class="zh">信任与冲突</span></span>
+            <span><span class="en">Attachment</span><span class="zh">依恋</span></span>
+            <span><span class="en">Open &amp; poly relationships</span><span class="zh">开放与多元关系</span></span>
+            <span><span class="en">Transitions</span><span class="zh">转变</span></span>
+          </div>
+        </div>
+
+        <div class="place-group pg-desire">
+          <h3><span class="dot" style="background:var(--coral)"></span><span class="en">Desire &amp; Intimacy</span><span class="zh">欲望与亲密</span></h3>
+          <p class="intro"><span class="en">A space where desire, pleasure, and vulnerability can be spoken about without shame.</span><span class="zh">一个可以谈论欲望、愉悦与脆弱的空间，不必带着羞耻。</span></p>
+          <div class="chips">
+            <span><span class="en">Desire &amp; pleasure</span><span class="zh">欲望与愉悦</span></span>
+            <span><span class="en">Shame</span><span class="zh">羞耻</span></span>
+            <span><span class="en">Mismatched needs</span><span class="zh">需求差异</span></span>
+            <span><span class="en">Intimacy</span><span class="zh">亲密</span></span>
+            <span><span class="en">Exploration</span><span class="zh">探索</span></span>
+          </div>
+        </div>
+
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GETTING STARTED ===== -->
+  <section id="begin">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker"><span class="en">Getting started</span><span class="zh">如何开始</span></div>
+        <h2><span class="en">It begins with a conversation</span><span class="zh">从一次对话开始</span></h2>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="num">01</div><h3><span class="en">Reach out</span><span class="zh">发出联系</span></h3><p><span class="en">A short email about what brings you in.</span><span class="zh">一封简短的邮件，说说你为何前来。</span></p></div>
+        <div class="step"><div class="num">02</div><h3><span class="en">A free consultation</span><span class="zh">一次免费咨询</span></h3><p><span class="en">A relaxed 15 minutes to see how it feels.</span><span class="zh">轻松的 15 分钟，先感受一下。</span></p></div>
+        <div class="step"><div class="num">03</div><h3><span class="en">Your first session</span><span class="zh">第一次会谈</span></h3><p><span class="en">We start wherever feels right for you.</span><span class="zh">从让你觉得合适的地方开始。</span></p></div>
+        <div class="step"><div class="num">04</div><h3><span class="en">Continue at your pace</span><span class="zh">按你的节奏继续</span></h3><p><span class="en">No fixed timeline. We revisit it together.</span><span class="zh">没有固定的期限，我们一起回顾。</span></p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head" style="text-align:center; max-width:none; margin-left:auto; margin-right:auto;">
+        <div class="kicker"><span class="en">FAQ</span><span class="zh">常见问题</span></div>
+        <h2 style="display:inline-block;"><span class="en">Questions, answered</span><span class="zh">常见问题，一一解答</span></h2>
+      </div>
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary class="faq-q"><span class="qt"><span class="en">Do you work online?</span><span class="zh">是否提供线上咨询？</span></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="faq-a"><div class="inner"><p><span class="en">Yes. Sessions are held online, and I can work with anyone located in New York State. Most sessions are 50 minutes.</span><span class="zh">是的——所有会谈均以线上形式进行，我可以为身在纽约州的任何来访者提供咨询。多数会谈为 50 分钟。</span></p></div></div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q"><span class="qt"><span class="en">What are your fees?</span><span class="zh">费用是怎样的？</span></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="faq-a"><div class="inner"><p><span class="en">Self-pay rates are $200 for an individual session and $250 for a relationship session, each 50 minutes.</span><span class="zh">自费费用为个体会谈每次 $200、关系会谈每次 $250，均为 50 分钟。</span></p></div></div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q"><span class="qt"><span class="en">Do you accept insurance?</span><span class="zh">是否接受保险？</span></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="faq-a"><div class="inner"><p><span class="en">I’m in-network with Aetna and Anthem BCBS. For other plans, I can provide superbills you can submit for out-of-network reimbursement.</span><span class="zh">我与 Aetna 和 Anthem BCBS 有合作。若你使用其他保险，我可以提供 superbill，供你向保险公司申请院外报销。</span></p></div></div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q"><span class="qt"><span class="en">What happens during the first session?</span><span class="zh">第一次会谈会发生什么？</span></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="faq-a"><div class="inner"><p><span class="en">Mostly getting to know each other: what brings you in, what you’re hoping for, and any questions about how we’d work together. There’s nothing you need to prepare.</span><span class="zh">主要是彼此认识——是什么让你前来、你所期待的，以及关于我们如何合作的任何问题。你无需做任何准备。</span></p></div></div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q"><span class="qt"><span class="en">How long does therapy usually last?</span><span class="zh">治疗通常持续多久？</span></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="faq-a"><div class="inner"><p><span class="en">There’s no set timeline. Some people come for a few months around a specific concern; others continue longer. We revisit your goals regularly and adjust together.</span><span class="zh">没有固定的期限。有些来访者围绕某个具体议题来上几个月，也有人会持续更久。我们会定期一起回顾目标，并做出调整。</span></p></div></div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q"><span class="qt"><span class="en">Do you work with couples?</span><span class="zh">你接受伴侣咨询吗？</span></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="faq-a"><div class="inner"><p><span class="en">Yes, and relationships of all structures, including non-monogamous and open ones.</span><span class="zh">是的——也包括各种结构的关系，涵盖非单一伴侣与开放式关系。</span></p></div></div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BEGIN (email only) ===== -->
+  <section id="begin-contact">
+    <div class="wrap">
+      <div class="begin-card">
+        <div class="ba" aria-hidden="true"></div>
+        <div class="kicker"><span class="en">Begin</span><span class="zh">开始</span></div>
+        <h2><span class="en">Whenever you’re ready</span><span class="zh">当你准备好的时候</span></h2>
+        <p><span class="en">The first step is just a message. No pressure, no forms. Tell me a little about what brings you here, and we’ll find a time from there.</span><span class="zh">第一步只是一条消息——没有压力，也没有表格。告诉我一点是什么让你前来，我们再从那里找时间。</span></p>
+        <a class="email" href="mailto:taoru@kueertherapy.com">taoru@kueertherapy.com</a>
+        <p class="note"><span class="en">Replies usually within a couple of business days.</span><span class="zh">通常会在一到两个工作日内回复。</span></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===== footer — 3 balanced columns ===== -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="fcol fcol-left">
+        <div class="wm">kueer therapy</div>
+        <p class="tagline"><span class="en">A bilingual psychotherapy practice.<br>Online across New York State.<br>Wherever you are ready.</span><span class="zh">一间中英双语心理治疗工作室。<br>面向纽约州提供线上会谈。<br>在你准备好的地方。</span></p>
+      </div>
+      <div class="fcol fcol-center">
+        <h4><span class="en">Explore</span><span class="zh">探索</span></h4>
+        <a href="#about"><span class="en">About</span><span class="zh">关于</span></a>
+        <a href="#therapy"><span class="en">Therapy</span><span class="zh">治疗</span></a>
+        <a href="#faq"><span class="en">FAQ</span><span class="zh">常见问题</span></a>
+        <a href="#begin-contact"><span class="en">Begin</span><span class="zh">开始</span></a>
+      </div>
+      <div class="fcol fcol-right">
+        <h4><span class="en">Elsewhere</span><span class="zh">别处</span></h4>
+        <a href="mailto:taoru@kueertherapy.com">taoru@kueertherapy.com</a>
+        <a href="https://www.psychologytoday.com/us/therapists/taoru-huang-new-york-ny/1012990" target="_blank" rel="noopener">Psychology Today</a>
+        <a href="http://instagram.com/kueertherapy" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.linkedin.com/in/taoruhuang" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="colophon-row">
+      <span class="c-left">© 2026 TH Mental Health Counseling PLLC</span>
+      <span class="c-center"><a href="#privacy" class="doclink" data-doc="privacy"><span class="en">Privacy</span><span class="zh">隐私</span></a> · <a href="#terms" class="doclink" data-doc="terms"><span class="en">Terms</span><span class="zh">条款</span></a> · <a href="#accessibility" class="doclink" data-doc="accessibility"><span class="en">Accessibility</span><span class="zh">无障碍</span></a></span>
+      <span class="c-right"><span class="en">Designed by Taoru Huang</span><span class="zh">由 Taoru Huang 设计</span></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== DOC OVERLAY (Privacy / Terms / Accessibility) ===== -->
+<div class="doc-overlay" id="docOverlay" role="dialog" aria-modal="true" aria-labelledby="docHeading">
+  <div class="doc-backdrop" data-close="1"></div>
+  <div class="doc-panel" role="document">
+    <button class="doc-close" type="button" aria-label="Close" data-close="1">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+
+    <!-- PRIVACY -->
+    <section class="doc" id="doc-privacy" aria-hidden="true">
+      <p class="doc-eyebrow" id="docHeading"><span class="en">Kueer Therapy</span><span class="zh">Kueer Therapy</span></p>
+      <h2 class="doc-title"><span class="en">Privacy</span><span class="zh">隐私政策</span></h2>
+      <p class="doc-lede"><span class="en">Your privacy matters.</span><span class="zh">你的隐私很重要。</span></p>
+      <p class="doc-intro"><span class="en">This page explains what information this website collects, why it is collected, and how it is used. My goal is to be transparent about how your information is handled, while keeping this website as simple and respectful as possible.</span><span class="zh">本页说明这个网站会收集哪些信息、为何收集，以及如何使用。我希望在如何处理你的信息这件事上保持透明，同时让这个网站尽可能简单、体贴。</span></p>
+      <hr>
+      <h3><span class="en">Information You Choose to Share</span><span class="zh">你选择分享的信息</span></h3>
+      <p><span class="en">At this time, this website does not include a contact form or client portal.</span><span class="zh">目前，这个网站没有联系表单，也没有来访者门户。</span></p>
+      <p><span class="en">If you choose to contact me, you do so by email. The information you share is entirely up to you.</span><span class="zh">如果你想联系我，会通过电子邮件进行。你分享多少信息，完全由你决定。</span></p>
+      <p><span class="en">Please avoid including detailed personal health information or sensitive clinical information in your initial email, as standard email should not be considered a secure method of communication.</span><span class="zh">请避免在第一封邮件里写入详细的个人健康信息或敏感的临床信息，因为普通电子邮件并不能被视为安全的沟通方式。</span></p>
+      <hr>
+      <h3><span class="en">How Your Information Is Used</span><span class="zh">你的信息如何被使用</span></h3>
+      <p><span class="en">If you contact me by email, your information may be used to:</span><span class="zh">如果你通过邮件联系我，你的信息可能会被用于：</span></p>
+      <ul>
+        <li><span class="en">Respond to your inquiry</span><span class="zh">回复你的咨询</span></li>
+        <li><span class="en">Discuss therapy services</span><span class="zh">讨论治疗服务</span></li>
+        <li><span class="en">Arrange an initial consultation, if appropriate</span><span class="zh">在合适的情况下，安排一次初次咨询</span></li>
+      </ul>
+      <p><span class="en">Your information will never be sold or shared for advertising or marketing purposes.</span><span class="zh">你的信息永远不会因广告或营销目的被出售或分享。</span></p>
+      <hr>
+      <h3><span class="en">Website Data</span><span class="zh">网站数据</span></h3>
+      <p><span class="en">This website currently does not use analytics tools or collect personal information through forms.</span><span class="zh">这个网站目前不使用分析工具，也不通过表单收集个人信息。</span></p>
+      <p><span class="en">Basic technical information (such as standard server logs necessary for website operation) may be collected by the website hosting provider.</span><span class="zh">基础的技术信息（例如网站运行所必需的标准服务器日志）可能会由网站托管服务商收集。</span></p>
+      <hr>
+      <h3><span class="en">Cookies</span><span class="zh">Cookie</span></h3>
+      <p><span class="en">This website is designed to function without unnecessary tracking.</span><span class="zh">这个网站在设计上无需依赖不必要的追踪即可运行。</span></p>
+      <p><span class="en">If cookies are used in the future for functionality or analytics, this policy will be updated accordingly.</span><span class="zh">如果将来出于功能或分析目的使用 cookie，本政策会相应更新。</span></p>
+      <hr>
+      <h3><span class="en">Therapeutic Relationship</span><span class="zh">治疗关系</span></h3>
+      <p><span class="en">Sending an email or visiting this website does <strong>not</strong> establish a therapist-client relationship.</span><span class="zh">发送邮件或访问这个网站，<strong>并不会</strong>建立治疗师与来访者的关系。</span></p>
+      <p><span class="en">A therapeutic relationship begins only after both parties have agreed to work together and all required consent documents have been completed.</span><span class="zh">治疗关系只有在双方同意一起工作、并完成所有必要的知情同意文件之后，才会开始。</span></p>
+      <hr>
+      <h3><span class="en">Changes to This Policy</span><span class="zh">本政策的变更</span></h3>
+      <p><span class="en">As the practice grows, this policy may be updated to reflect changes in services or website functionality.</span><span class="zh">随着执业的发展，本政策可能会更新，以反映服务或网站功能的变化。</span></p>
+      <p><span class="en">The most recent version will always be available here.</span><span class="zh">最新版本将始终在此提供。</span></p>
+      <p class="doc-updated"><span class="en">Last updated: 2026</span><span class="zh">最后更新：2026 年</span></p>
+    </section>
+
+    <!-- TERMS -->
+    <section class="doc" id="doc-terms" aria-hidden="true">
+      <p class="doc-eyebrow"><span class="en">Kueer Therapy</span><span class="zh">Kueer Therapy</span></p>
+      <h2 class="doc-title"><span class="en">Website Terms</span><span class="zh">网站条款</span></h2>
+      <p class="doc-lede"><span class="en">A few practical notes about using this website.</span><span class="zh">关于使用这个网站的一些实用说明。</span></p>
+      <p class="doc-intro"><span class="en">These terms explain how the information on this website may be used and what you can expect when visiting Kueer Therapy online.</span><span class="zh">这些条款说明这个网站上的信息可以如何使用，以及你在线访问 Kueer Therapy 时可以期待什么。</span></p>
+      <hr>
+      <h3><span class="en">Informational Use</span><span class="zh">信息用途</span></h3>
+      <p><span class="en">The content on this website is intended for general informational and educational purposes.</span><span class="zh">这个网站上的内容仅用于一般性的信息与教育目的。</span></p>
+      <p><span class="en">It should not be considered medical, psychological, legal, or crisis advice.</span><span class="zh">它不应被视为医疗、心理、法律或危机方面的建议。</span></p>
+      <hr>
+      <h3><span class="en">No Therapeutic Relationship</span><span class="zh">不构成治疗关系</span></h3>
+      <p><span class="en">Visiting this website or contacting me by email does <strong>not</strong> establish a therapist-client relationship.</span><span class="zh">访问这个网站或通过邮件联系我，<strong>并不会</strong>建立治疗师与来访者的关系。</span></p>
+      <p><span class="en">Therapy begins only after an initial consultation, mutual agreement to work together, and completion of all required intake and consent documents.</span><span class="zh">治疗只有在初次咨询、双方同意一起工作、并完成所有必要的初诊与知情同意文件之后，才会开始。</span></p>
+      <hr>
+      <h3><span class="en">Emergencies</span><span class="zh">紧急情况</span></h3>
+      <p><span class="en">This website is not intended for emergency situations.</span><span class="zh">这个网站不适用于紧急情况。</span></p>
+      <p><span class="en">If you are experiencing a mental health emergency or are concerned about your immediate safety, please call <strong>911</strong> or go to your nearest emergency department.</span><span class="zh">如果你正在经历心理健康方面的紧急状况，或担心自己当下的安全，请拨打 <strong>911</strong>，或前往就近的急诊科。</span></p>
+      <hr>
+      <h3><span class="en">Intellectual Property</span><span class="zh">知识产权</span></h3>
+      <p><span class="en">Unless otherwise noted, all written content, branding, graphics, and design elements on this website are the intellectual property of Kueer Therapy and may not be copied, reproduced, or distributed without prior written permission.</span><span class="zh">除非另有说明，这个网站上所有的文字内容、品牌标识、图形与设计元素均为 Kueer Therapy 的知识产权，未经事先书面许可，不得复制、翻印或分发。</span></p>
+      <p><span class="en">You are welcome to reference or share this website by linking directly to it.</span><span class="zh">欢迎你通过直接链接的方式引用或分享这个网站。</span></p>
+      <hr>
+      <h3><span class="en">Changes</span><span class="zh">变更</span></h3>
+      <p><span class="en">These terms may be updated from time to time as the practice and website evolve.</span><span class="zh">随着执业与网站的发展，这些条款可能会不时更新。</span></p>
+      <p><span class="en">The most recent version will always be available here.</span><span class="zh">最新版本将始终在此提供。</span></p>
+      <p class="doc-updated"><span class="en">Last updated: 2026</span><span class="zh">最后更新：2026 年</span></p>
+    </section>
+
+    <!-- ACCESSIBILITY -->
+    <section class="doc" id="doc-accessibility" aria-hidden="true">
+      <p class="doc-eyebrow"><span class="en">Kueer Therapy</span><span class="zh">Kueer Therapy</span></p>
+      <h2 class="doc-title"><span class="en">Accessibility</span><span class="zh">无障碍</span></h2>
+      <p class="doc-lede"><span class="en">Feeling welcome also means being able to access this website.</span><span class="zh">感到被欢迎，也意味着能够顺利地使用这个网站。</span></p>
+      <p class="doc-intro"><span class="en">Accessibility is part of creating a space where more people can feel included. This website is designed with care and will continue to evolve with accessibility in mind.</span><span class="zh">无障碍，是创造一个让更多人感到被接纳的空间的一部分。这个网站以用心的方式设计，也会持续朝着更好的无障碍体验演进。</span></p>
+      <hr>
+      <h3><span class="en">Accessibility Commitment</span><span class="zh">无障碍承诺</span></h3>
+      <p><span class="en">Kueer Therapy aims to provide a website that is accessible to as many visitors as possible.</span><span class="zh">Kueer Therapy 希望提供一个能被尽可能多的访客顺利使用的网站。</span></p>
+      <p><span class="en">Where practical, the site follows the principles of the <strong>Web Content Accessibility Guidelines (WCAG) 2.1 Level AA</strong>.</span><span class="zh">在可行的范围内，本网站遵循 <strong>网页内容无障碍指南（WCAG）2.1 AA 级</strong> 的原则。</span></p>
+      <p><span class="en">Accessibility is an ongoing process rather than a finished state.</span><span class="zh">无障碍是一个持续进行的过程，而非一个完成的状态。</span></p>
+      <hr>
+      <h3><span class="en">Current Accessibility Features</span><span class="zh">当前的无障碍特性</span></h3>
+      <p><span class="en">The website is designed to support:</span><span class="zh">这个网站在设计上支持：</span></p>
+      <ul>
+        <li><span class="en">Clear page structure and headings</span><span class="zh">清晰的页面结构与标题层级</span></li>
+        <li><span class="en">Keyboard navigation</span><span class="zh">键盘导航</span></li>
+        <li><span class="en">Readable typography</span><span class="zh">易读的排版</span></li>
+        <li><span class="en">Responsive layouts across devices</span><span class="zh">适配各种设备的响应式布局</span></li>
+        <li><span class="en">Sufficient color contrast</span><span class="zh">足够的色彩对比度</span></li>
+        <li><span class="en">Alternative text for meaningful images</span><span class="zh">为有意义的图片提供替代文本</span></li>
+      </ul>
+      <hr>
+      <h3><span class="en">Feedback</span><span class="zh">反馈</span></h3>
+      <p><span class="en">If you encounter an accessibility barrier or experience difficulty using this website, I'd genuinely appreciate knowing.</span><span class="zh">如果你遇到任何无障碍方面的障碍，或在使用这个网站时遇到困难，我会很感激你愿意告诉我。</span></p>
+      <p><span class="en">Please contact: <span class="doc-email">taoru@kueertherapy.com</span></span><span class="zh">请联系：<span class="doc-email">taoru@kueertherapy.com</span></span></p>
+      <p><span class="en">Your feedback helps improve the experience for everyone.</span><span class="zh">你的反馈能帮助我们改善每个人的体验。</span></p>
+      <p class="doc-updated"><span class="en">Last updated: 2026</span><span class="zh">最后更新：2026 年</span></p>
+    </section>
+
+  </div>
+</div>
+
+<script>
+/* smooth-open <details> bodies */
+(function(){
+  function bodyOf(d){ return d.querySelector('.exp-body') || d.querySelector('.faq-a'); }
+  function setH(d, open){
+    var b=bodyOf(d); if(!b) return;
+    if(open){ b.style.maxHeight = b.scrollHeight + 'px'; }
+    else { b.style.maxHeight = b.scrollHeight + 'px'; requestAnimationFrame(function(){ b.style.maxHeight='0px'; }); }
+  }
+  [].slice.call(document.querySelectorAll('details.exp, details.faq-item')).forEach(function(d){
+    var sum=d.querySelector('summary');
+    sum.addEventListener('click', function(e){
+      e.preventDefault();
+      if(!d.open){ d.open=true; requestAnimationFrame(function(){ setH(d,true); }); }
+      else { setH(d,false); var b=bodyOf(d); var done=function(){ d.open=false; b.removeEventListener('transitionend',done); }; b.addEventListener('transitionend',done); }
+    });
+    var b=bodyOf(d);
+    if(b) b.addEventListener('transitionend', function(){ if(d.open) b.style.maxHeight='none'; });
+  });
+  window.addEventListener('resize', function(){
+    [].slice.call(document.querySelectorAll('details.exp[open], details.faq-item[open]')).forEach(function(d){ var b=bodyOf(d); if(b){ b.style.maxHeight='none'; } });
+  });
+})();
+
+
+/* ---------- DOC OVERLAY: open/close, focus trap, hash, scroll lock ---------- */
+(function(){
+  var overlay=document.getElementById('docOverlay'); if(!overlay) return;
+  var panel=overlay.querySelector('.doc-panel');
+  var docs={ privacy:document.getElementById('doc-privacy'), terms:document.getElementById('doc-terms'), accessibility:document.getElementById('doc-accessibility') };
+  var lastFocus=null;
+
+  function focusables(){ return [].slice.call(panel.querySelectorAll('button, [href], input, textarea, select, [tabindex]:not([tabindex="-1"])')).filter(function(el){ return el.offsetParent!==null; }); }
+
+  function show(which){
+    if(!docs[which]) return;
+    lastFocus=document.activeElement;
+    for(var k in docs){ var on=(k===which); docs[k].classList.toggle('active',on); docs[k].setAttribute('aria-hidden', on?'false':'true'); }
+    scrollY=window.pageYOffset;
+    var sbw=window.innerWidth-document.documentElement.clientWidth; document.documentElement.style.overflow='hidden'; document.body.style.overflow='hidden'; if(sbw>0) document.body.style.paddingRight=sbw+'px';
+    overlay.classList.add('open');
+    panel.scrollTop=0;
+    if(('#'+which)!==location.hash){ history.replaceState(null,'','#'+which); }
+    setTimeout(function(){ var c=panel.querySelector('.doc-close'); if(c) c.focus(); },40);
+  }
+  function hide(){
+    overlay.classList.remove('open');
+    document.documentElement.style.overflow=''; document.body.style.overflow=''; document.body.style.paddingRight='';
+    if(location.hash){ history.replaceState(null,'',location.pathname+location.search); }
+    if(lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  function isOpen(){ return overlay.classList.contains('open'); }
+
+  // triggers
+  [].slice.call(document.querySelectorAll('.doclink')).forEach(function(a){
+    a.addEventListener('click', function(e){ e.preventDefault(); show(a.getAttribute('data-doc')); });
+  });
+  // close (backdrop + button)
+  [].slice.call(overlay.querySelectorAll('[data-close]')).forEach(function(el){ el.addEventListener('click', hide); });
+  // keyboard
+  document.addEventListener('keydown', function(e){
+    if(!isOpen()) return;
+    if(e.key==='Escape'){ e.preventDefault(); hide(); return; }
+    if(e.key==='Tab'){
+      var f=focusables(); if(!f.length) return;
+      var first=f[0], last=f[f.length-1];
+      if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+      else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
+    }
+  });
+  // open from hash on load / hashchange
+  function fromHash(){ var hcheck=location.hash.replace('#',''); if(docs[hcheck]){ show(hcheck); } }
+  window.addEventListener('hashchange', function(){ var hcheck=location.hash.replace('#',''); if(docs[hcheck]){ show(hcheck); } else if(isOpen()){ hide(); } });
+  fromHash();
+})();
+
+/* language toggle */
+function setLang(l){
+  if(l==='zh' && !window.__sc){ window.__sc=1; var k=document.createElement('link'); k.rel='stylesheet'; k.href='https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@500;600&display=swap'; document.head.appendChild(k); }
+  document.body.classList.remove('lang-en','lang-zh');
+  document.body.classList.add('lang-'+l);
+  document.documentElement.lang=(l==='zh')?'zh-Hans':'en';
+  [].slice.call(document.querySelectorAll('.langtoggle button')).forEach(function(b){ b.classList.toggle('active', b.textContent.trim()===(l==='en'?'EN':'中')); });
+}
+</script>
+</body>
+</html>
