@@ -41,7 +41,11 @@ a{color:inherit; text-decoration:none;}
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size:150px 150px;}
 
-@keyframes auraDrift{0%{transform:translate3d(0,0,0) scale(1);}50%{transform:translate3d(1.4%,-1%,0) scale(1.04);}100%{transform:translate3d(0,0,0) scale(1);}}
+@keyframes auraBreathe{
+  0%   { transform:scale(1)    translate3d(0,0,0);      opacity:.82; }
+  50%  { transform:scale(1.09) translate3d(2.2%,-1.6%,0); opacity:1;   }
+  100% { transform:scale(1)    translate3d(0,0,0);      opacity:.82; }
+}
 
 /* ===== favicon ===== */
 <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
@@ -79,19 +83,22 @@ section{padding:clamp(72px,10vh,110px) 0; position:relative;}
 
 /* ===== HERO ===== */
 .hero{position:relative; overflow:hidden; background:var(--ivory); padding:clamp(96px,15vh,150px) 0 clamp(84px,13vh,120px);}
-.hero::before{content:''; position:absolute; inset:-14%; z-index:0; pointer-events:none; filter:blur(20px); opacity:.9; animation:auraDrift 42s ease-in-out infinite;
-  background:radial-gradient(46% 58% at 82% 22%, rgba(201,187,230,0.34), transparent 68%),
-            radial-gradient(42% 54% at 90% 62%, rgba(167,205,236,0.30), transparent 70%),
-            radial-gradient(40% 50% at 14% 78%, rgba(169,221,200,0.30), transparent 70%),
-            radial-gradient(36% 46% at 24% 24%, rgba(242,164,140,0.18), transparent 72%);}
+.hero::before{content:''; position:absolute; inset:-16%; z-index:0; pointer-events:none; filter:blur(24px); transform-origin:60% 45%; animation:auraBreathe 11s ease-in-out infinite;
+  background:radial-gradient(48% 60% at 78% 26%, rgba(201,187,230,0.40), transparent 68%),
+            radial-gradient(46% 58% at 92% 58%, rgba(167,205,236,0.38), transparent 70%),
+            radial-gradient(40% 52% at 66% 82%, rgba(241,183,198,0.26), transparent 72%),
+            radial-gradient(40% 50% at 12% 76%, rgba(169,221,200,0.30), transparent 70%),
+            radial-gradient(36% 46% at 22% 22%, rgba(242,164,140,0.20), transparent 72%),
+            radial-gradient(34% 44% at 60% 44%, rgba(243,212,140,0.16), transparent 74%);}
 .hero .wrap{position:relative; z-index:2;}
 .hero .eyebrow{font-size:12px; letter-spacing:2.4px; text-transform:uppercase; color:var(--accent); margin-bottom:22px;}
 .hero h1{font-family:var(--serif); font-size:clamp(38px,6vw,66px); font-variation-settings:"opsz" 60,"wght" 560; letter-spacing:-.012em; max-width:16ch; margin-bottom:24px;}
-body.lang-zh .hero h1{letter-spacing:.02em; max-width:20ch;}
+body.lang-zh .hero h1{letter-spacing:.02em; max-width:none;}
 .hero-sub{font-family:var(--serif); font-style:italic; font-variation-settings:"opsz" 34,"wght" 400; font-size:clamp(18px,2.3vw,25px); line-height:1.4; color:var(--ink); max-width:30ch; margin-bottom:clamp(20px,3.2vh,28px);}
 body.lang-zh .hero-sub{font-style:normal; max-width:24em;}
-.hero .lede{font-size:clamp(16px,1.7vw,19px); color:var(--ink-soft); max-width:50ch; margin-bottom:34px;}
-.hero-tag{position:absolute; right:4%; top:32%; z-index:2; font-size:12px; letter-spacing:2px; text-transform:uppercase; writing-mode:vertical-rl; color:var(--ink-soft); opacity:.4;}
+.hero .lede{font-size:clamp(16px,1.7vw,19px); color:var(--ink-soft); max-width:72ch; margin-bottom:34px;}
+body.lang-zh .hero .lede{max-width:34em;}
+.hero-tag{position:absolute; right:4%; top:32%; z-index:2; font-family:'Inter',sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; writing-mode:vertical-rl; color:var(--ink-soft); opacity:.4;}
 @media(max-width:860px){ .hero-tag{display:none;} }
 .cta-row{display:flex; flex-wrap:wrap; gap:14px;}
 .btn{display:inline-block; padding:14px 28px; border-radius:30px; font-size:14px; font-weight:500; cursor:pointer; border:1.5px solid transparent; transition:background .3s, border-color .3s, transform .3s;}
@@ -110,6 +117,16 @@ body.lang-zh .hero-sub{font-style:normal; max-width:24em;}
 .about-body .warm{color:var(--ink); font-variation-settings:"wght" 500;}
 .creds{margin-top:clamp(26px,4vh,40px); border-top:1px solid var(--line-soft); padding-top:clamp(24px,3.5vh,34px);}
 .creds-title{font-size:11px; letter-spacing:1.6px; text-transform:uppercase; color:var(--accent); font-weight:600; margin-bottom:20px;}
+.stat-row{display:flex; gap:clamp(24px,4vw,52px); margin-bottom:clamp(26px,4vh,38px); padding-bottom:clamp(24px,3.5vh,32px); border-bottom:1px solid var(--line-soft);}
+.stat{flex:0 1 auto;}
+.stat-n{font-family:var(--serif); font-variation-settings:"opsz" 60,"wght" 500; font-size:clamp(30px,3.4vw,42px); line-height:1; color:var(--ink); display:flex; align-items:baseline; gap:1px;}
+.stat:nth-child(1) .stat-n{color:var(--coral);}
+.stat:nth-child(2) .stat-n{color:var(--sky);}
+.stat:nth-child(3) .stat-n{color:var(--mint);}
+.stat-n .plus{font-size:.6em; opacity:.75;}
+.stat-n .unit{font-size:.48em; color:var(--ink-soft); margin-left:4px; font-variation-settings:"wght" 440;}
+.stat-k{font-size:12px; letter-spacing:.3px; color:var(--ink-soft); margin-top:11px; line-height:1.4;}
+@media(max-width:460px){ .stat-row{gap:20px;} .stat-n{font-size:28px;} }
 .creds-grid{display:block;}
 .creds-grid .cred{margin-bottom:22px;}
 .creds-grid .cred:last-child{margin-bottom:0;}
@@ -208,22 +225,21 @@ footer .tagline{font-size:14px; color:var(--ink-soft); line-height:1.8;}
 
 /* ===== WHERE WE OFTEN BEGIN (static groups, no fold) ===== */
 #begin-places{background:var(--linen);}
-.places-grid{display:grid; grid-template-columns:1fr 1fr; gap:clamp(24px,3vw,40px) clamp(30px,4vw,56px); margin-top:clamp(30px,5vh,46px);}
+.places-grid{display:grid; grid-template-columns:1fr 1fr; gap:clamp(40px,6vw,68px) clamp(44px,6vw,84px); margin-top:clamp(38px,6vh,58px);}
 .place-group{position:relative;}
-.place-group h3{font-family:var(--serif); font-variation-settings:"opsz" 34,"wght" 520; font-size:clamp(19px,2.1vw,23px); margin-bottom:10px; display:flex; align-items:center; gap:11px;}
+.place-group h3{font-family:var(--serif); font-variation-settings:"opsz" 34,"wght" 520; font-size:clamp(19px,2.1vw,23px); margin-bottom:12px; display:flex; align-items:center; gap:11px;}
 .place-group h3 .dot{width:10px; height:10px; border-radius:50%; flex:none;}
-.place-group .intro{font-size:14.5px; color:var(--ink-soft); line-height:1.62; margin-bottom:16px; max-width:44ch;}
-.chips{display:flex; flex-wrap:wrap; gap:8px;}
-.chips{gap:9px 10px;}
-.chips > span{display:inline-flex; align-items:center; font-size:13px; color:#4A4E54; padding:6px 14px; border-radius:20px;
+.place-group .intro{font-size:14.5px; color:var(--ink-soft); line-height:1.62; margin-bottom:20px; max-width:44ch;}
+.chips{display:flex; flex-wrap:wrap; gap:11px 12px;}
+.chips > span{display:inline-flex; align-items:center; font-size:13px; color:var(--ink-soft); padding:6px 15px; border-radius:20px;
   border:1px solid var(--line); background:transparent; transition:background .25s ease, color .25s ease, border-color .25s ease;}
-.chips > span:hover{color:var(--ink); background:var(--chip-bg-h, rgba(38,41,46,.06)); border-color:transparent;}
+.chips > span:hover{color:var(--ink); background:var(--chip-bg-h, rgba(38,41,46,.05)); border-color:transparent;}
 /* per-group hover wash (soft, low-saturation) */
 .place-group.pg-identity .chips > span:hover{ background:rgba(201,187,230,.34); }
 .place-group.pg-asian    .chips > span:hover{ background:rgba(243,212,140,.36); }
 .place-group.pg-together .chips > span:hover{ background:rgba(227,142,108,.30); }
 .place-group.pg-desire   .chips > span:hover{ background:rgba(242,164,140,.30); }
-@media(max-width:760px){ .places-grid{grid-template-columns:1fr; gap:30px;} }
+@media(max-width:760px){ .places-grid{grid-template-columns:1fr; gap:36px;} }
 
 
 /* ===== DOC OVERLAY (Privacy / Terms / Accessibility) ===== */
@@ -257,7 +273,7 @@ body.lang-zh .doc .doc-lede{font-style:normal;}
 .doc .doc-updated{margin-top:28px; padding-top:18px; border-top:1px solid var(--line-soft); font-size:12.5px; color:var(--ink-soft);}
 @media(max-width:520px){ .doc-panel{border-radius:14px; max-height:94vh;} }
 
-@media (prefers-reduced-motion: reduce){ .hero::before{animation:none;} html{scroll-behavior:auto;} }
+@media (prefers-reduced-motion: reduce){ .hero::before{animation:none; opacity:.92;} html{scroll-behavior:auto;} }
 </style>
 </head>
 <body class="lang-en">
@@ -289,9 +305,9 @@ body.lang-zh .doc .doc-lede{font-style:normal;}
     <div class="hero-tag">KUEER THERAPY · NEW YORK · EST 2025</div>
     <div class="wrap">
       <p class="eyebrow"><span class="en">Bilingual · Queer-Affirming · Trauma-Informed</span><span class="zh">中英双语 · 酷儿肯定 · 创伤知情</span></p>
-      <h1><span class="en">Every part of you is welcome here.</span><span class="zh">你的每一部分，在这里都被欢迎。</span></h1>
-      <p class="hero-sub"><span class="en">Making room before making sense.</span><span class="zh">先安放，再理解。</span></p>
-      <p class="lede"><span class="en">Bilingual psychotherapy for people navigating identity, relationships, intimacy, and belonging.</span><span class="zh">中英双语心理治疗，陪伴正在梳理身份、关系、亲密与归属议题的人们。</span></p>
+      <h1><span class="en">Every part of you is welcome here.</span><span class="zh">在这里，<br>你不必急着解释自己。</span></h1>
+      <p class="hero-sub"><span class="en">Making room before making sense.</span><span class="zh">越真实，越自在。</span></p>
+      <p class="lede"><span class="en">Bilingual psychotherapy for identity, relationships, intimacy, and belonging.</span><span class="zh">中英双语心理治疗——探索爱与美、关系与自我、存在与价值。</span></p>
     </div>
   </section>
 
@@ -307,20 +323,36 @@ body.lang-zh .doc .doc-lede{font-style:normal;}
           <p><span class="en">My work is informed by multicultural, feminist, and queer theories, as well as my own perspective as an Asian queer therapist. I try to challenge the limits of Americentric, heteronormative models of therapy, so that together we can make a space where you can express, explore, and embrace who you really are.</span><span class="zh">我的工作深受多元文化、女性主义与酷儿理论影响，也来自我作为一名亚裔酷儿治疗师的自身经验。我希望突破以美国为中心、异性恋规范化的传统框架的局限，与你一起创造一个安全的空间，让你可以表达、探索并拥抱真实的自己。</span></p>
 
           <div class="creds">
-            <div class="creds-title"><span class="en">Education &amp; Credentials</span><span class="zh">教育背景与专业资历</span></div>
+            <div class="creds-title"><span class="en">Experience &amp; Credentials</span><span class="zh">经验与专业资历</span></div>
+
+            <div class="stat-row">
+              <div class="stat">
+                <div class="stat-n">2,500<span class="plus">+</span></div>
+                <div class="stat-k"><span class="en">Clinical hours</span><span class="zh">临床小时数</span></div>
+              </div>
+              <div class="stat">
+                <div class="stat-n">2,000<span class="plus">+</span></div>
+                <div class="stat-k"><span class="en">LGBTQ+ client hours</span><span class="zh">LGBTQ+ 小时数</span></div>
+              </div>
+              <div class="stat">
+                <div class="stat-n">5<span class="unit"><span class="en">yrs</span><span class="zh">年</span></span></div>
+                <div class="stat-k"><span class="en">In practice</span><span class="zh">从业经验</span></div>
+              </div>
+            </div>
+
             <div class="creds-grid">
               <div class="cred">
                 <div class="cred-label"><span class="en">Licensure</span><span class="zh">执照</span></div>
                 <p class="cred-val"><span class="en">LMHC — Licensed Mental Health Counselor, New York State (#016431)</span><span class="zh">LMHC — 纽约州持证心理健康咨询师（#016431）</span></p>
               </div>
               <div class="cred">
-                <div class="cred-label"><span class="en">Education</span><span class="zh">教育背景</span></div>
+                <div class="cred-label"><span class="en">Education</span><span class="zh">教育经历</span></div>
                 <p class="cred-val"><span class="en">M.A., Counseling for Mental Health &amp; Wellness / LGBT Health, Education &amp; Social Services — New York University</span><span class="zh">心理健康与咨询 / LGBT 健康、教育与社会服务 硕士 — 纽约大学</span></p>
-                <p class="cred-val" style="margin-top:8px;"><span class="en">B.J., Journalism — University of Missouri</span><span class="zh">新闻学 学士 — 密苏里大学</span></p>
+                <p class="cred-val" style="margin-top:8px;"><span class="en">Sex Therapy &amp; Sexuality Education Certificate Program — University of Michigan</span><span class="zh">性治疗与性教育证书项目 — 密歇根大学</span></p>
               </div>
               <div class="cred">
-                <div class="cred-label"><span class="en">Training</span><span class="zh">专业训练</span></div>
-                <p class="cred-val"><span class="en">EMDR · Internal Family Systems (IFS) · narrative &amp; relational approaches · sex &amp; relationship therapy</span><span class="zh">EMDR · 内在家庭系统（IFS）· 叙事与关系取向 · 性治疗与关系治疗</span></p>
+                <div class="cred-label"><span class="en">Training</span><span class="zh">受训背景</span></div>
+                <p class="cred-val"><span class="en">EMDR · Internal Family Systems (IFS) · narrative &amp; relational approaches · sex &amp; relationship therapy</span><span class="zh">EMDR · 内在家庭系统（IFS）· 叙事与关系取向 · 性治疗与伴侣治疗</span></p>
               </div>
             </div>
           </div>
@@ -365,7 +397,7 @@ body.lang-zh .doc .doc-lede{font-style:normal;}
               <circle cx="89" cy="36" r="22" stroke="var(--self)"/>
               <circle cx="111" cy="36" r="22" stroke="var(--partner)"/>
             </svg>
-            <h3><span class="dot" style="--c:var(--partner)"></span><span class="en">Relationship Therapy</span><span class="zh">关系治疗</span></h3>
+            <h3><span class="dot" style="--c:var(--partner)"></span><span class="en">Relationship Therapy</span><span class="zh">伴侣治疗</span></h3>
             <span class="lede"><span class="en">For partners of any structure, held with equal care.</span><span class="zh">面向任何结构的伴侣，都以同等的用心相待。</span></span>
             <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
           </summary>
@@ -395,10 +427,10 @@ body.lang-zh .doc .doc-lede{font-style:normal;}
 
       <!-- practical details -->
       <div class="facts">
-        <div class="fact"><div class="k"><span class="en">Sessions</span><span class="zh">会谈</span></div><div class="v"><span class="en">Online across New York</span><span class="zh">线上 · 覆盖纽约州</span><span class="sub"><span class="en">Most sessions are 50 minutes</span><span class="zh">多数会谈为 50 分钟</span></span></div></div>
         <div class="fact"><div class="k"><span class="en">Individual</span><span class="zh">个体</span></div><div class="v">$200<span class="sub"><span class="en">per 50-minute session</span><span class="zh">每次 50 分钟</span></span></div></div>
-        <div class="fact"><div class="k"><span class="en">Relationship</span><span class="zh">关系</span></div><div class="v">$250<span class="sub"><span class="en">per 50-minute session</span><span class="zh">每次 50 分钟</span></span></div></div>
-        <div class="fact"><div class="k"><span class="en">Insurance</span><span class="zh">保险</span></div><div class="v"><span class="en">Aetna · Anthem BCBS</span><span class="zh">Aetna · Anthem BCBS</span><span class="sub"><span class="en">In-network · superbills otherwise</span><span class="zh">在网 · 或以 superbill 报销</span></span></div></div>
+        <div class="fact"><div class="k"><span class="en">Relationship</span><span class="zh">伴侣</span></div><div class="v">$250<span class="sub"><span class="en">per 50-minute session</span><span class="zh">每次 50 分钟</span></span></div></div>
+        <div class="fact"><div class="k"><span class="en">Insurance</span><span class="zh">保险</span></div><div class="v"><span class="en">Aetna · Anthem BCBS</span><span class="zh">Aetna · Anthem BCBS</span><span class="sub"><span class="en">In-network · superbills available</span><span class="zh">可报销 · 提供 superbill</span></span></div></div>
+        <div class="fact"><div class="k"><span class="en">Sliding scale</span><span class="zh">折扣费率</span></div><div class="v"><span class="en">A few spots, need-based</span><span class="zh">少量名额，按需提供</span><span class="sub"><span class="en">Discussed in consultation</span><span class="zh">可在预咨询中商议</span></span></div></div>
       </div>
     </div>
   </section>
@@ -490,37 +522,30 @@ body.lang-zh .doc .doc-lede{font-style:normal;}
         <h2 style="display:inline-block;"><span class="en">Questions, answered</span><span class="zh">常见问题，一一解答</span></h2>
       </div>
       <div class="faq-list">
-
         <details class="faq-item">
-          <summary class="faq-q"><span class="qt"><span class="en">Do you work online?</span><span class="zh">是否提供线上咨询？</span></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
-          <div class="faq-a"><div class="inner"><p><span class="en">Yes. Sessions are held online, and I can work with anyone located in New York State. Most sessions are 50 minutes.</span><span class="zh">是的——所有会谈均以线上形式进行，我可以为身在纽约州的任何来访者提供咨询。多数会谈为 50 分钟。</span></p></div></div>
+          <summary class="faq-q"><span class="qt"><span class="en">Do you work in-person or online?</span><span class="zh">你提供线下还是线上服务？</span></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="faq-a"><div class="inner"><p><span class="en">Sessions are currently online only for clients located in New York State, through HIPAA-compliant platforms.</span><span class="zh">目前仅为纽约州来访者提供线上会谈，通过符合 HIPAA 隐私标准的平台进行。</span></p></div></div>
         </details>
-
         <details class="faq-item">
-          <summary class="faq-q"><span class="qt"><span class="en">What are your fees?</span><span class="zh">费用是怎样的？</span></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
-          <div class="faq-a"><div class="inner"><p><span class="en">Self-pay rates are $200 for an individual session and $250 for a relationship session, each 50 minutes.</span><span class="zh">自费费用为个体会谈每次 $200、关系会谈每次 $250，均为 50 分钟。</span></p></div></div>
+          <summary class="faq-q"><span class="qt"><span class="en">What are your rates? Do you accept insurance?</span><span class="zh">费用如何？是否接受保险？</span></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="faq-a"><div class="inner"><p><span class="en">Self-pay rates are $200 for an individual session and $250 for a relationship session, each 50 minutes. I'm in-network with Aetna and Anthem BCBS in New York, and your cost depends on your plan. For other insurers, I can provide superbills for out-of-network reimbursement. Depending on your coverage, you may be reimbursed for a good portion of the fee.</span><span class="zh">自费费用为个体会谈 $200、伴侣会谈 $250，都是每次 50 分钟。我接收纽约州的 Aetna 和 Anthem BCBS 保险，实际费用取决于你的保险计划。若使用其他保险，我将提供 superbill 供你申请计划外报销。根据你的保险覆盖情况，你可能获得相当一部分费用的报销。</span></p></div></div>
         </details>
-
         <details class="faq-item">
-          <summary class="faq-q"><span class="qt"><span class="en">Do you accept insurance?</span><span class="zh">是否接受保险？</span></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
-          <div class="faq-a"><div class="inner"><p><span class="en">I’m in-network with Aetna and Anthem BCBS. For other plans, I can provide superbills you can submit for out-of-network reimbursement.</span><span class="zh">我与 Aetna 和 Anthem BCBS 有合作。若你使用其他保险，我可以提供 superbill，供你向保险公司申请院外报销。</span></p></div></div>
+          <summary class="faq-q"><span class="qt"><span class="en">How do sliding-scale rates work?</span><span class="zh">折扣费率如何运作？</span></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="faq-a"><div class="inner"><p><span class="en">If you feel we might be a good fit but the self-pay rates are hard to manage, please bring it up. We can talk about whether a reduced rate works for both of us. It's decided case by case.</span><span class="zh">如果你觉得我们可能合适，但自费费用让你有些吃力，欢迎直接提出来。我们可以聊聊，看折扣费率是否会更可行。这将按具体情况决定。</span></p></div></div>
         </details>
-
         <details class="faq-item">
           <summary class="faq-q"><span class="qt"><span class="en">What happens during the first session?</span><span class="zh">第一次会谈会发生什么？</span></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
-          <div class="faq-a"><div class="inner"><p><span class="en">Mostly getting to know each other: what brings you in, what you’re hoping for, and any questions about how we’d work together. There’s nothing you need to prepare.</span><span class="zh">主要是彼此认识——是什么让你前来、你所期待的，以及关于我们如何合作的任何问题。你无需做任何准备。</span></p></div></div>
+          <div class="faq-a"><div class="inner"><p><span class="en">The first session is an intake — a chance for us to get to know each other. You can share what brings you here, get a feel for how I work, and together we'll talk about how we might work going forward. No pressure to have it all figured out by yourself.</span><span class="zh">第一次会谈是初次评估（intake），我们可以借此机会来熟悉彼此。你可以聊聊是什么带你来到这里，感受一下我的工作方式，我们也会一起谈谈接下来将能如何合作。不必事先就把一切都独自想清楚。</span></p></div></div>
         </details>
-
         <details class="faq-item">
-          <summary class="faq-q"><span class="qt"><span class="en">How long does therapy usually last?</span><span class="zh">治疗通常持续多久？</span></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
-          <div class="faq-a"><div class="inner"><p><span class="en">There’s no set timeline. Some people come for a few months around a specific concern; others continue longer. We revisit your goals regularly and adjust together.</span><span class="zh">没有固定的期限。有些来访者围绕某个具体议题来上几个月，也有人会持续更久。我们会定期一起回顾目标，并做出调整。</span></p></div></div>
+          <summary class="faq-q"><span class="qt"><span class="en">How long does therapy usually last?</span><span class="zh">心理治疗通常会持续多久？</span></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="faq-a"><div class="inner"><p><span class="en">It depends on your needs and goals. There's no commitment required. Solution-focused work tends to be shorter, around 3–6 months. Open-ended, exploratory work can continue for as long as you find it helpful.</span><span class="zh">这取决于你的需要与目标。不需要任何长期承诺。聚焦解决的工作通常较短，约 3–6 个月。开放式的自我探索与持续支持，可以进行到你觉得有帮助为止。</span></p></div></div>
         </details>
-
         <details class="faq-item">
-          <summary class="faq-q"><span class="qt"><span class="en">Do you work with couples?</span><span class="zh">你接受伴侣咨询吗？</span></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
-          <div class="faq-a"><div class="inner"><p><span class="en">Yes, and relationships of all structures, including non-monogamous and open ones.</span><span class="zh">是的——也包括各种结构的关系，涵盖非单一伴侣与开放式关系。</span></p></div></div>
+          <summary class="faq-q"><span class="qt"><span class="en">What if I'm not sure therapy is right for me?</span><span class="zh">如果我还不确定要不要开始，怎么办？</span></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="faq-a"><div class="inner"><p><span class="en">That's completely okay. Have a look around the site to get a sense of who I am and how I work, and email me any questions that aren't answered here. The 15-minute complimentary consultation is also a low-pressure way to chat and see if it feels right.</span><span class="zh">这完全没关系。可以先在网站上四处看看，了解一下我是谁、如何工作，也欢迎通过邮件向我提问。我们可以通过免费的 15 分钟预咨询来聊一聊，看看感觉是否合适，然后再决定是否开始正式咨询。</span></p></div></div>
         </details>
-
       </div>
     </div>
   </section>
